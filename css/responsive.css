@@ -1,0 +1,521 @@
+/* ==========================================================
+   BUDGET MANAGER
+   Responsive design
+   ========================================================== */
+
+
+/* ==========================================================
+   1. ÉCRANS MOYENS — TABLETTES ET PETITS ORDINATEURS
+   ========================================================== */
+
+@media screen and (max-width: 1024px) {
+
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: var(--space-md);
+        padding: var(--space-md) 1.5rem;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    main {
+        width: min(100% - 3rem, 1000px);
+        padding: var(--space-lg) 0;
+    }
+
+    .cards {
+        gap: var(--space-md);
+    }
+
+    .card {
+        min-height: 150px;
+        padding: 1.5rem;
+    }
+
+    .budget-container {
+        gap: var(--space-md);
+    }
+
+    .budget-column {
+        padding: 1.5rem;
+    }
+
+}
+
+
+/* ==========================================================
+   2. TABLETTES
+   ========================================================== */
+
+@media screen and (max-width: 820px) {
+
+    header {
+        position: relative;
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-sm);
+    }
+
+    .nav-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 0.65rem 0.75rem;
+        text-align: center;
+    }
+
+    main {
+        width: min(100% - 2rem, 760px);
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .budget-container {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-column {
+        width: 100%;
+    }
+
+    .summary {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================================
+   3. PETITES TABLETTES ET GRANDS TÉLÉPHONES
+   ========================================================== */
+
+@media screen and (max-width: 640px) {
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    main {
+        width: calc(100% - 2rem);
+        min-height: auto;
+        padding: 1.5rem 0;
+    }
+
+    .page > h1 {
+        font-size: 1.8rem;
+    }
+
+    .page > p {
+        margin-bottom: 1.5rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card:last-child {
+        grid-column: auto;
+    }
+
+    .card {
+        min-height: 130px;
+        padding: 1.25rem;
+    }
+
+    .card p {
+        font-size: 1.8rem;
+    }
+
+    .budget-container {
+        margin-top: 1.5rem;
+    }
+
+    .budget-column {
+        padding: 1rem;
+        border-radius: var(--radius);
+    }
+
+    .budget-column > button {
+        width: 100%;
+    }
+
+    .summary {
+        padding: 1.25rem;
+        border-radius: var(--radius);
+    }
+
+    .comparison-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        min-width: 120px;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        min-width: 105px;
+        background-color: var(--surface);
+    }
+
+    .comparison-table thead th:first-child {
+        z-index: 2;
+        background-color: var(--surface);
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+}
+
+
+/* ==========================================================
+   4. TÉLÉPHONES
+   ========================================================== */
+
+@media screen and (max-width: 480px) {
+
+    header {
+        gap: 0.75rem;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-btn {
+        font-size: 0.85rem;
+    }
+
+    main {
+        width: calc(100% - 1.25rem);
+        padding: 1.25rem 0;
+    }
+
+    .page > h1 {
+        font-size: 1.55rem;
+    }
+
+    .page > p {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        min-height: 115px;
+        padding: 1rem;
+    }
+
+    .card h2 {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 1.55rem;
+    }
+
+    .budget-column {
+        padding: 0.85rem;
+    }
+
+    .budget-column h2 {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .budget-column:first-child h2::after,
+    .budget-column:last-child h2::after {
+        align-self: flex-start;
+    }
+
+    .budget-column table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .budget-column thead,
+    .budget-column tbody {
+        min-width: 430px;
+    }
+
+    .budget-column th,
+    .budget-column td {
+        padding: 0.7rem 0.55rem;
+    }
+
+    .budget-column th:first-child,
+    .budget-column td:first-child {
+        min-width: 180px;
+    }
+
+    .budget-column th:nth-child(2),
+    .budget-column td:nth-child(2) {
+        min-width: 120px;
+    }
+
+    .budget-column th:last-child,
+    .budget-column td:last-child {
+        min-width: 52px;
+    }
+
+    .budget-column input {
+        min-height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .delete-btn,
+    .remove-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .summary {
+        padding: 1rem;
+    }
+
+    .summary p {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .summary .solde {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .summary .solde span {
+        margin-left: auto;
+    }
+
+    .notification {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        left: 0.75rem;
+        max-width: none;
+    }
+
+}
+
+
+/* ==========================================================
+   5. TRÈS PETITS TÉLÉPHONES
+   ========================================================== */
+
+@media screen and (max-width: 360px) {
+
+    .logo {
+        font-size: 0.95rem;
+    }
+
+    .nav-btn {
+        min-height: 42px;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .page > h1 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 1.4rem;
+    }
+
+    .budget-column > button {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.82rem;
+    }
+
+    .summary .solde {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .summary .solde span {
+        margin-left: 0;
+    }
+
+}
+
+
+/* ==========================================================
+   6. ORIENTATION PAYSAGE SUR MOBILE
+   ========================================================== */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+    header {
+        position: relative;
+    }
+
+    nav {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .nav-btn {
+        font-size: 0.75rem;
+        padding: 0.55rem 0.4rem;
+    }
+
+    main {
+        padding-top: 1rem;
+    }
+
+}
+
+
+/* ==========================================================
+   7. GRANDS ÉCRANS
+   ========================================================== */
+
+@media screen and (min-width: 1400px) {
+
+    header {
+        padding-right: calc((100% - 1320px) / 2);
+        padding-left: calc((100% - 1320px) / 2);
+    }
+
+    main {
+        width: min(1320px, calc(100% - 3rem));
+    }
+
+    .cards {
+        gap: 2.5rem;
+    }
+
+    .budget-container {
+        gap: 2.5rem;
+    }
+
+}
+
+
+/* ==========================================================
+   8. APPAREILS TACTILES
+   ========================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .nav-btn,
+    .budget-column > button,
+    .delete-btn,
+    .remove-btn {
+        min-height: 44px;
+    }
+
+    .nav-btn:hover,
+    .budget-column > button:hover,
+    .delete-btn:hover,
+    .remove-btn:hover,
+    .card:hover,
+    .budget-column:hover,
+    .summary:hover {
+        transform: none;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+}
+
+
+/* ==========================================================
+   9. IMPRESSION
+   ========================================================== */
+
+@media print {
+
+    body {
+        color: #000000;
+        background-color: #ffffff;
+    }
+
+    header,
+    footer,
+    .budget-column > button,
+    .delete-btn,
+    .remove-btn,
+    .notification {
+        display: none !important;
+    }
+
+    main {
+        width: 100%;
+        padding: 0;
+    }
+
+    .page {
+        display: block !important;
+        margin-bottom: 2rem;
+        page-break-inside: avoid;
+    }
+
+    .card,
+    .budget-column,
+    .summary,
+    .comparison-table {
+        box-shadow: none;
+        border: 1px solid #cccccc;
+    }
+
+    .cards,
+    .budget-container {
+        display: block;
+    }
+
+    .card,
+    .budget-column {
+        margin-bottom: 1rem;
+    }
+
+    .comparison-table {
+        display: table;
+        overflow: visible;
+        white-space: normal;
+    }
+
+}
