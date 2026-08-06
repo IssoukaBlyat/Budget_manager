@@ -1,0 +1,999 @@
+/* ==========================================================
+   BUDGET MANAGER
+   Style principal — Partie 1
+   Reset, base générale, header, navigation et boutons
+   ========================================================== */
+
+
+/* ==========================================================
+   1. RESET CSS
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font);
+    color: var(--text);
+    background-color: var(--background);
+    line-height: 1.6;
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   2. ACCESSIBILITÉ
+   ========================================================== */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+::selection {
+    color: #ffffff;
+    background-color: var(--primary);
+}
+
+
+/* ==========================================================
+   3. STRUCTURE GÉNÉRALE
+   ========================================================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: min(1200px, calc(100% - 2rem));
+    min-height: calc(100vh - 180px);
+    margin: 0 auto;
+    padding: var(--space-xl) 0;
+    flex: 1;
+}
+
+.page {
+    display: none;
+    animation: pageFadeIn 0.3s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+.page > h1 {
+    margin-bottom: var(--space-sm);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+}
+
+.page > p {
+    margin-bottom: var(--space-lg);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   4. HEADER
+   ========================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+
+    width: 100%;
+    min-height: 80px;
+    padding: var(--space-md) max(1rem, calc((100% - 1200px) / 2));
+
+    background-color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+
+    flex-shrink: 0;
+
+    color: var(--primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+
+/* ==========================================================
+   5. NAVIGATION
+   ========================================================== */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    position: relative;
+
+    padding: 0.7rem 1rem;
+
+    color: var(--text-light);
+    background-color: transparent;
+    border-radius: var(--radius);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+.nav-btn:hover {
+    color: var(--primary);
+    background-color: rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
+}
+
+.nav-btn.active {
+    color: #ffffff;
+    background-color: var(--primary);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+.nav-btn.active:hover {
+    color: #ffffff;
+    background-color: var(--primary-dark);
+}
+
+
+/* ==========================================================
+   6. BOUTONS GÉNÉRAUX
+   ========================================================== */
+
+button {
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.budget-column > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+
+    min-height: 42px;
+    margin-bottom: var(--space-md);
+    padding: 0.7rem 1rem;
+
+    color: #ffffff;
+    background-color: var(--primary);
+    border-radius: var(--radius);
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.budget-column > button:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+    transform: translateY(-2px);
+}
+
+.delete-btn,
+.remove-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    color: var(--danger);
+    background-color: rgba(220, 38, 38, 0.08);
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+.delete-btn:hover,
+.remove-btn:hover {
+    color: #ffffff;
+    background-color: var(--danger);
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   7. ÉTATS ET CLASSES UTILITAIRES
+   ========================================================== */
+
+.text-success {
+    color: var(--success);
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.text-warning {
+    color: var(--warning);
+}
+
+.text-muted {
+    color: var(--text-light);
+}
+
+.positive {
+    color: var(--success);
+}
+
+.negative {
+    color: var(--danger);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.disabled,
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   8. MODE SOMBRE — ÉLÉMENTS DE BASE
+   ========================================================== */
+
+body.dark header {
+    background-color: rgba(31, 41, 55, 0.92);
+}
+
+body.dark .nav-btn:hover {
+    background-color: rgba(96, 165, 250, 0.12);
+}
+
+body.dark ::selection {
+    color: #ffffff;
+    background-color: var(--primary);
+}
+
+
+/* ==========================================================
+   9. ANIMATIONS GÉNÉRALES
+   ========================================================== */
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonPulse {
+    0%,
+    100% {
+        box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+    }
+}
+
+
+/* ==========================================================
+   10. TABLEAU DE BORD
+   ========================================================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 170px;
+    padding: var(--space-lg);
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition),
+        background-color var(--transition);
+}
+
+.card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    content: "";
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        #60a5fa
+    );
+}
+
+.card:hover {
+    border-color: rgba(37, 99, 235, 0.25);
+    box-shadow: var(--shadow);
+    transform: translateY(-4px);
+}
+
+.card h2 {
+    margin-bottom: var(--space-md);
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card p {
+    color: var(--text);
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.card:nth-child(1)::before {
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        #60a5fa
+    );
+}
+
+.card:nth-child(2)::before {
+    background: linear-gradient(
+        90deg,
+        var(--success),
+        #4ade80
+    );
+}
+
+.card:nth-child(3)::before {
+    background: linear-gradient(
+        90deg,
+        var(--warning),
+        #fbbf24
+    );
+}
+
+
+/* ==========================================================
+   11. CONTENEURS DES BUDGETS
+   ========================================================== */
+
+.budget-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: start;
+    margin-top: var(--space-lg);
+}
+
+.budget-column {
+    overflow: hidden;
+
+    padding: var(--space-lg);
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.budget-column:hover {
+    box-shadow: var(--shadow);
+}
+
+.budget-column h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: var(--space-md);
+    color: var(--text);
+}
+
+.budget-column:first-child h2::after {
+    padding: 0.25rem 0.6rem;
+
+    content: "Entrées";
+
+    color: var(--success);
+    background-color: rgba(22, 163, 74, 0.1);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.budget-column:last-child h2::after {
+    padding: 0.25rem 0.6rem;
+
+    content: "Sorties";
+
+    color: var(--danger);
+    background-color: rgba(220, 38, 38, 0.1);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   12. TABLEAUX DES BUDGETS
+   ========================================================== */
+
+.budget-column table,
+.comparison-table {
+    width: 100%;
+    overflow: hidden;
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+thead {
+    background-color: rgba(37, 99, 235, 0.06);
+}
+
+th,
+td {
+    padding: 0.9rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    color: var(--text-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+td {
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+tbody tr {
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+tbody tr:hover {
+    background-color: rgba(37, 99, 235, 0.035);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    text-align: right;
+}
+
+th:last-child,
+td:last-child {
+    width: 54px;
+    text-align: center;
+}
+
+.budget-column tbody:empty::after {
+    display: table-cell;
+
+    padding: 1.5rem;
+
+    content: "Aucune ligne pour le moment";
+
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.budget-column tbody:empty {
+    display: table-row;
+}
+
+
+/* ==========================================================
+   13. CHAMPS DE SAISIE
+   ========================================================== */
+
+.budget-column input {
+    width: 100%;
+    min-height: 40px;
+    padding: 0.55rem 0.7rem;
+
+    color: var(--text);
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+.budget-column input:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+}
+
+.budget-column input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.budget-column input::placeholder {
+    color: var(--text-light);
+    opacity: 0.75;
+}
+
+.budget-column input[type="number"] {
+    text-align: right;
+}
+
+.budget-column input[type="number"]::-webkit-inner-spin-button,
+.budget-column input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+}
+
+
+/* ==========================================================
+   14. RÉSUMÉ FINANCIER
+   ========================================================== */
+
+.summary {
+    width: min(100%, 520px);
+    margin-top: var(--space-lg);
+    margin-left: auto;
+    padding: var(--space-lg);
+
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.summary:hover {
+    box-shadow: var(--shadow);
+}
+
+.summary h3 {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+.summary p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+
+    padding: 0.7rem 0;
+
+    color: var(--text-light);
+    border-bottom: 1px dashed var(--border);
+}
+
+.summary p:last-child {
+    border-bottom: none;
+}
+
+.summary span {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.summary .solde {
+    margin-top: var(--space-sm);
+    padding: var(--space-md);
+
+    color: var(--text);
+    background-color: rgba(37, 99, 235, 0.08);
+    border: none;
+    border-radius: var(--radius);
+
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.summary .solde span {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   15. TABLEAU DE COMPARAISON
+   ========================================================== */
+
+.comparison-table {
+    margin-top: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+}
+
+.comparison-table th:not(:first-child),
+.comparison-table td:not(:first-child) {
+    text-align: right;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+    width: auto;
+}
+
+.comparison-table tbody td:first-child {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.comparison-table tbody tr:last-child {
+    background-color: rgba(37, 99, 235, 0.06);
+}
+
+.comparison-table tbody tr:last-child td {
+    font-weight: 700;
+}
+
+.comparison-table td[id$="-diff"] {
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   16. FOOTER
+   ========================================================== */
+
+footer {
+    width: 100%;
+    padding: var(--space-lg) 1rem;
+
+    color: var(--text-light);
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    transition:
+        background-color var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+}
+
+footer p {
+    font-size: 0.85rem;
+}
+
+
+/* ==========================================================
+   17. BARRE DE DÉFILEMENT
+   ========================================================== */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--background);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(37, 99, 235, 0.7);
+    border: 2px solid var(--background);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* ==========================================================
+   18. MODE SOMBRE
+   ========================================================== */
+
+body.dark .card,
+body.dark .budget-column,
+body.dark .summary,
+body.dark .comparison-table,
+body.dark footer {
+    background-color: var(--surface);
+    border-color: var(--border);
+}
+
+body.dark thead {
+    background-color: rgba(96, 165, 250, 0.08);
+}
+
+body.dark tbody tr:hover {
+    background-color: rgba(96, 165, 250, 0.06);
+}
+
+body.dark .budget-column input {
+    color: var(--text);
+    background-color: #111827;
+    border-color: var(--border);
+}
+
+body.dark .budget-column input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+body.dark .summary .solde {
+    background-color: rgba(96, 165, 250, 0.1);
+}
+
+body.dark .summary .solde span {
+    color: #60a5fa;
+}
+
+body.dark .comparison-table tbody tr:last-child {
+    background-color: rgba(96, 165, 250, 0.08);
+}
+
+body.dark .budget-column:first-child h2::after {
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.1);
+}
+
+body.dark .budget-column:last-child h2::after {
+    color: #f87171;
+    background-color: rgba(248, 113, 113, 0.1);
+}
+
+
+/* ==========================================================
+   19. ANIMATIONS DES ÉLÉMENTS
+   ========================================================== */
+
+.card,
+.budget-column,
+.summary,
+.comparison-table {
+    animation: elementAppear 0.4s ease both;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.06s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.12s;
+}
+
+.budget-column:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+@keyframes elementAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   20. MESSAGES ET NOTIFICATIONS FUTURES
+   ========================================================== */
+
+.notification {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+
+    max-width: min(360px, calc(100% - 2rem));
+    padding: 0.9rem 1rem;
+
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    animation: notificationAppear 0.3s ease;
+}
+
+.notification.success {
+    border-left: 4px solid var(--success);
+}
+
+.notification.error {
+    border-left: 4px solid var(--danger);
+}
+
+.notification.warning {
+    border-left: 4px solid var(--warning);
+}
+
+@keyframes notificationAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   21. RÉDUCTION DES ANIMATIONS
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
