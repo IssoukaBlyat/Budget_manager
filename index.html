@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Budget Manager</title>
+
+    <meta name="description"
+        content="Application de gestion de budget prévisionnel et réel.">
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            💰 Budget Manager
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" data-section="dashboard">
+                Tableau de bord
+            </button>
+
+            <button class="nav-btn" data-section="previsionnel">
+                Budget prévisionnel
+            </button>
+
+            <button class="nav-btn" data-section="reel">
+                Budget réel
+            </button>
+
+            <button class="nav-btn" data-section="comparaison">
+                Comparaison
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main>
+
+        <section id="dashboard" class="page active">
+
+            <h1>Bienvenue</h1>
+
+            <p>
+                Gérez facilement votre budget mensuel.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h2>Budget prévisionnel</h2>
+
+                    <p id="dashboard-previsionnel-solde">
+                        0,00 €
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h2>Budget réel</h2>
+
+                    <p id="dashboard-reel-solde">
+                        0,00 €
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h2>Écart</h2>
+
+                    <p id="dashboard-ecart">
+                        0,00 €
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= BUDGET PREVISIONNEL ================= -->
+
+        <section id="previsionnel" class="page">
+
+            <h1>Budget prévisionnel</h1>
+
+            <div class="budget-container">
+
+                <div class="budget-column">
+
+                    <h2>Revenus</h2>
+
+                    <button id="add-income-previsionnel">
+                        + Ajouter un revenu
+                    </button>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Description</th>
+                                <th>Montant</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="income-previsionnel-body">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="budget-column">
+
+                    <h2>Dépenses</h2>
+
+                    <button id="add-expense-previsionnel">
+                        + Ajouter une dépense
+                    </button>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Description</th>
+                                <th>Montant</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="expense-previsionnel-body">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="summary">
+
+                <h3>Résumé</h3>
+
+                <p>
+                    Revenus :
+                    <span id="income-previsionnel-total">
+                        0,00 €
+                    </span>
+                </p>
+
+                <p>
+                    Dépenses :
+                    <span id="expense-previsionnel-total">
+                        0,00 €
+                    </span>
+                </p>
+
+                <p class="solde">
+                    Solde :
+                    <span id="solde-previsionnel">
+                        0,00 €
+                    </span>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= BUDGET REEL ================= -->
+
+        <section id="reel" class="page">
+
+            <h1>Budget réel</h1>
+
+            <div class="budget-container">
+
+                <div class="budget-column">
+
+                    <h2>Revenus</h2>
+
+                    <button id="add-income-reel">
+                        + Ajouter un revenu
+                    </button>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Description</th>
+                                <th>Montant</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="income-reel-body">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="budget-column">
+
+                    <h2>Dépenses</h2>
+
+                    <button id="add-expense-reel">
+                        + Ajouter une dépense
+                    </button>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Description</th>
+                                <th>Montant</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="expense-reel-body">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="summary">
+
+                <h3>Résumé</h3>
+
+                <p>
+                    Revenus :
+                    <span id="income-reel-total">
+                        0,00 €
+                    </span>
+                </p>
+
+                <p>
+                    Dépenses :
+                    <span id="expense-reel-total">
+                        0,00 €
+                    </span>
+                </p>
+
+                <p class="solde">
+                    Solde :
+                    <span id="solde-reel">
+                        0,00 €
+                    </span>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= COMPARAISON ================= -->
+
+        <section id="comparaison" class="page">
+
+            <h1>Comparaison</h1>
+
+            <table class="comparison-table">
+
+                <thead>
+
+                    <tr>
+                        <th></th>
+                        <th>Prévisionnel</th>
+                        <th>Réel</th>
+                        <th>Écart</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Revenus</td>
+                        <td id="compare-income-previsionnel">0,00 €</td>
+                        <td id="compare-income-reel">0,00 €</td>
+                        <td id="compare-income-diff">0,00 €</td>
+                    </tr>
+
+                    <tr>
+                        <td>Dépenses</td>
+                        <td id="compare-expense-previsionnel">0,00 €</td>
+                        <td id="compare-expense-reel">0,00 €</td>
+                        <td id="compare-expense-diff">0,00 €</td>
+                    </tr>
+
+                    <tr>
+                        <td>Solde</td>
+                        <td id="compare-solde-previsionnel">0,00 €</td>
+                        <td id="compare-solde-reel">0,00 €</td>
+                        <td id="compare-solde-diff">0,00 €</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Budget Manager © 2026
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/budget.js"></script>
+    <script src="js/compare.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
