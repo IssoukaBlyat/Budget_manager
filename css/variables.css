@@ -1,0 +1,69 @@
+/* ==========================================================
+   BUDGET MANAGER
+   Variables globales
+   ========================================================== */
+
+:root{
+
+    /* Couleurs principales */
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+
+    --success:#16a34a;
+    --danger:#dc2626;
+    --warning:#f59e0b;
+
+    --background:#f5f7fb;
+    --surface:#ffffff;
+
+    --text:#1f2937;
+    --text-light:#6b7280;
+
+    --border:#e5e7eb;
+
+    /* Ombres */
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+    --shadow:0 8px 25px rgba(0,0,0,.08);
+
+    /* Arrondis */
+
+    --radius:12px;
+    --radius-lg:18px;
+
+    /* Espacements */
+
+    --space-xs:.25rem;
+    --space-sm:.5rem;
+    --space-md:1rem;
+    --space-lg:2rem;
+    --space-xl:3rem;
+
+    /* Police */
+
+    --font:'Poppins',sans-serif;
+
+    /* Animations */
+
+    --transition:.25s ease;
+
+}
+
+/* ======================= */
+/*        MODE SOMBRE      */
+/* ======================= */
+
+body.dark{
+
+    --background:#111827;
+
+    --surface:#1f2937;
+
+    --text:#f3f4f6;
+
+    --text-light:#cbd5e1;
+
+    --border:#374151;
+
+}
