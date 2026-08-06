@@ -519,3 +519,19 @@
     }
 
 }
+
+
+@media screen and (max-width: 1024px) {
+    .dark-mode-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .dark-mode-toggle {
+        position: static;
+        width: 100%;
+    }
+}
