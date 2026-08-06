@@ -997,3 +997,41 @@ body.dark .budget-column:last-child h2::after {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ==========================================================
+   22. BOUTON DU MODE SOMBRE
+   ========================================================== */
+
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    min-height: 42px;
+    padding: 0.65rem 0.9rem;
+
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.dark-mode-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.current-date {
+    margin-top: -0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
